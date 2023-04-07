@@ -55,8 +55,17 @@
     text-align: center;
     cursor: pointer;
 
+    &:hover {
+      opacity: .9;
+    }
+
     &_disabled {
       cursor: default;
+      background-color: $color-grey;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }
