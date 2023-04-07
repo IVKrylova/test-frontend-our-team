@@ -9,6 +9,10 @@ import './App.scss';
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
 
+  const handleFormSignUp = (data) => {
+    console.log(data)
+  }
+
   return (
     <div className='app'>
       <Routes>
@@ -35,6 +39,7 @@ const App = () => {
           path='/sign-up'
           element={
             <SignUp
+              sendProperty={handleFormSignUp}
             />
           }
         />

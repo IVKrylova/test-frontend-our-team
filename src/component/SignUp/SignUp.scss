@@ -25,7 +25,6 @@
 
   &__form {
     @include flex-column;
-    row-gap: 16px;
   }
 
   &__button-show-password {
@@ -54,5 +53,9 @@
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
+
+    &_disabled {
+      cursor: default;
+    }
   }
 }

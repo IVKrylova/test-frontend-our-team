@@ -21,6 +21,7 @@
     @include font-w400-s10;
     color: $color-red;
     visibility: hidden;
+    min-height: 24px;
 
     &_active {
       visibility: visible;
