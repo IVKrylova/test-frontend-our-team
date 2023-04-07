@@ -6,7 +6,12 @@ import './SignUp.scss';
 const SignUp = (props) => {
   const { values, handleChange, errors, isValid, setIsValid } = useFormAndValidation();
   const [errorPassword, setErrorPassword] = useState('');
+  const [typeInputPassword, setTypeInputPassword] = useState('password');
+  const [typeInputPasswordVerification, setTypeInputPasswordVerification] = useState('password');
+
   const classButtonSubmit = `page-sign-up__button-submit ${!isValid ? 'page-sign-up__button-submit_disabled' : ''}`;
+  const classInputPassword = `page-sign-up__button-show-password ${typeInputPassword === 'password' ? '' : 'page-sign-up__button-show-password_hide'}`;
+  const classInputPasswordVerification = `page-sign-up__button-show-password ${typeInputPasswordVerification === 'password' ? '' : 'page-sign-up__button-show-password_hide'}`;
 
   useEffect(() => {
     if (values.password !== values.passwordVerification) {
@@ -29,6 +34,18 @@ const SignUp = (props) => {
       password: values.password,
       passwordVerification: values.passwordVerification,
     });
+  }
+
+  const handleShowPassword = () => {
+    typeInputPassword === 'password'
+      ? setTypeInputPassword('text')
+      : setTypeInputPassword('password');
+  }
+
+  const handleShowPasswordVerification = () => {
+    typeInputPasswordVerification === 'password'
+      ? setTypeInputPasswordVerification('text')
+      : setTypeInputPasswordVerification('password');
   }
 
   return (
@@ -59,22 +76,23 @@ const SignUp = (props) => {
           <InputBlock
             label='Пароль'
             name='password'
-            type='password'
+            type={typeInputPassword}
             value={values.password}
             onChange={handleChange}
             isValid={isValid}
             errorMessage={errors.password}
           >
             <button
-              className='page-sign-up__button-show-password'
+              className={classInputPassword}
               type='button'
               aria-label='Кнопка изменить видимость пароля'
+              onClick={handleShowPassword}
             ></button>
           </InputBlock>
           <InputBlock
             label='Подтвердите пароль'
             name='passwordVerification'
-            type='password'
+            type={typeInputPasswordVerification}
             value={values.passwordVerification}
             onChange={handleChange}
             isValid={isValid}
@@ -82,9 +100,10 @@ const SignUp = (props) => {
             errorPassword={errorPassword}
           >
             <button
-              className='page-sign-up__button-show-password'
+              className={classInputPasswordVerification}
               type='button'
               aria-label='Кнопка изменить видимость пароля'
+              onClick={handleShowPasswordVerification}
             ></button>
           </InputBlock>
           <button
