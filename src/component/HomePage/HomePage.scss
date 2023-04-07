@@ -73,4 +73,24 @@
       @include font-w400-s20;
     }
   }
+
+  &__content {
+    @include grid-column-1fr;
+    box-sizing: border-box;
+    padding: 32px 9.3%;
+
+    @include media_768 {
+      padding: 48px 5.5% 69px;
+    }
+  }
+
+  &__persons-list {
+    @include reset-margins;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+    justify-content: center;
+  }
 }
