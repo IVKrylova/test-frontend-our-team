@@ -13,3 +13,15 @@ export const getMorePersons = (persons, newPersons) => {
     payload: [...persons, ...newPersons],
   }
 }
+
+export const likePerson = (persons, id) => {
+  return {
+    type: personsActionTypes.LIKE_PERSON,
+    payload: persons.map(el => {
+      if (el.id === id) {
+        el.isLiked ? el.isLiked = false : el.isLiked = true;
+      }
+      return el;
+    }),
+  }
+}

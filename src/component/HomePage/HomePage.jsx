@@ -28,6 +28,7 @@ const HomePage = (props) => {
               <PersonCard
                 key={el.id}
                 person={el}
+                sendIdPerson={props.sendIdPerson}
               />
             );
           })}

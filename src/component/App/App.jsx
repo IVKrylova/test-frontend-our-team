@@ -6,7 +6,11 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import SignUp from '../SignUp/SignUp';
 import PersonalPage from '../PersonalPage/PersonalPage';
 import HomePage from '../HomePage/HomePage';
-import { setPersons, getMorePersons } from '../../store/actionCreators/personsActions';
+import {
+  setPersons,
+  getMorePersons,
+  likePerson
+} from '../../store/actionCreators/personsActions';
 import { TOTAL_PAGES } from '../../utils/constants';
 import './App.scss';
 
@@ -24,7 +28,11 @@ const App = () => {
   const getPersons = async () => {
     try {
       const res = await axios.get('https://reqres.in/api/users?page=1');
-      dispatch(setPersons(res.data.data));
+      const data = res.data.data.map(el => {
+        el.isLiked = false;
+        return el;
+      });
+      dispatch(setPersons(data));
     } catch (err) {
       console.log(err);
     }
@@ -38,21 +46,39 @@ const App = () => {
   }
 
   const handleGetMorePersons = async () => {
-    try {
-      const res = await axios.get(`https://reqres.in/api/users?page=${pageNumber}`);
-      dispatch(getMorePersons(persons, res.data.data));
-    } catch (err) {
-      console.log(err);
+    if (pageNumber > 1) {
+      try {
+        const res = await axios.get(`https://reqres.in/api/users?page=${pageNumber}`);
+        const data = res.data.data.map(el => {
+          el.isLiked = false;
+          return el;
+        });
+        dispatch(getMorePersons(persons, data));
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 
+  const handleClickLikePerson = (id) => {
+    dispatch(likePerson(persons, id));
+  }
+
   useEffect(() => {
-    getPersons();
+    const data = localStorage.getItem('persons')
+      && JSON.parse(localStorage.getItem('persons'));
+
+    console.log(data)
+    data === null ? getPersons() : dispatch(setPersons(data));
   }, []);
 
   useEffect(() => {
     handleGetMorePersons();
   }, [pageNumber]);
+
+  useEffect(() => {
+    if (persons.length > 0) localStorage.setItem('persons', JSON.stringify(persons));
+  }, [persons]);
 
   return (
     <div className='app'>
@@ -65,6 +91,7 @@ const App = () => {
                 persons={persons}
                 isButtonMoreDisabled={isButtonMoreDisabled}
                 increasePage={increasePage}
+                sendIdPerson={handleClickLikePerson}
               />
             }
           />
