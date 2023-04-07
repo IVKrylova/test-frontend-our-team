@@ -1,3 +1,4 @@
+import ButtonExit from '../ButtonExit/ButtonExit';
 import PersonCard from '../PersonCard/PersonCard';
 import './HomePage.scss';
 
@@ -7,11 +8,7 @@ const HomePage = (props) => {
   return (
     <main className='home-page'>
       <section className='home-page__header'>
-        <button
-          className='home-page__button-exit'
-          type='button'
-          aria-label='Кнопка выйти из приложения'
-        ></button>
+        <ButtonExit />
         <h1 className='home-page__title'>
           Наша команда
         </h1>
