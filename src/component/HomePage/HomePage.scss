@@ -93,4 +93,28 @@
     column-gap: 20px;
     justify-content: center;
   }
+
+  &__button-more {
+    @include max-width-block(170px);
+    margin-top: 32px;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border: 1px solid $color-black;
+    border-radius: $border-radius-input-bth;
+    background-color: transparent;
+    @include font-w400-s16;
+    color: $color-black;
+    cursor: pointer;
+    text-align: left;
+    justify-self: center;
+
+    &::after {
+      content: url(../../images/icon-button-more.svg);
+      margin-left: 11px;
+    }
+
+    &:hover {
+      opacity: .7;
+    }
+  }
 }
