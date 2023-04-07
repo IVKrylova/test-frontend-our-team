@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
 }
 
-@mixin grid-column-ifr {
+@mixin grid-column-1fr {
   display: grid;
   grid-template-columns: 1fr;
 }

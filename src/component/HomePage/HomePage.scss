@@ -2,10 +2,10 @@
 @import '../../utils/styles/_mixins';
 
 .home-page {
-  @include grid-column-ifr;
+  @include grid-column-1fr;
 
   &__header {
-    @include grid-column-ifr;
+    @include grid-column-1fr;
     background-color: $color-violet;
     box-sizing: border-box;
     padding: 23px 5.5% 64px;
@@ -71,7 +71,6 @@
 
     @include media_768 {
       @include font-w400-s20;
-
     }
   }
 }

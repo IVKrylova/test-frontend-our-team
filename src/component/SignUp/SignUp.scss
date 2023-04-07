@@ -2,7 +2,7 @@
 @import '../../utils/styles/_mixins';
 
 .page-sign-up {
-  @include grid-column-ifr;
+  @include grid-column-1fr;
   justify-content: center;
   align-items: center;
 
