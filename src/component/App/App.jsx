@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -16,6 +16,7 @@ import './App.scss';
 
 const App = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const persons = useSelector(store => store.persons.persons);
   const [isLogin, setIsLogin] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
@@ -64,11 +65,14 @@ const App = () => {
     dispatch(likePerson(persons, id));
   }
 
+  const handleCardPersonClick = (id) => {
+    navigate(`/person/${id}`);
+  }
+
   useEffect(() => {
     const data = localStorage.getItem('persons')
       && JSON.parse(localStorage.getItem('persons'));
 
-    console.log(data)
     data === null ? getPersons() : dispatch(setPersons(data));
   }, []);
 
@@ -92,6 +96,7 @@ const App = () => {
                 isButtonMoreDisabled={isButtonMoreDisabled}
                 increasePage={increasePage}
                 sendIdPerson={handleClickLikePerson}
+                sendIdCardPerson={handleCardPersonClick}
               />
             }
           />

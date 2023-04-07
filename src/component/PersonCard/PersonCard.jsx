@@ -7,8 +7,12 @@ const PersonCard = (props) => {
     props.sendIdPerson(props.person.id);
   }
 
+  const handleCardClick = (evt) => {
+    if (!evt.target.closest(`.person-card__button-like`)) props.sendIdCardPerson(props.person.id);
+  }
+
   return (
-    <li className='person-card'>
+    <li className='person-card' onClick={handleCardClick}>
       <img
         src={props.person.avatar}
         alt={`${props.person.first_name} ${props.person.last_name}`}

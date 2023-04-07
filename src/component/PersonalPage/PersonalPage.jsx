@@ -1,9 +1,10 @@
+
 import './PersonalPage.scss';
 
-const PersonalPage = () => {
+const PersonalPage = (props) => {
   return (
-    <main>
-      PersonalPage
+    <main className='personal-page'>
+      {props.id}
     </main>
   );
 }
