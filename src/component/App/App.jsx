@@ -24,7 +24,7 @@ const App = () => {
         </Route>
         <Route element={ <ProtectedRoute isLogin={isLogin} /> }>
           <Route
-            path='/:id'
+            path='/person/:id'
             element={
               <PersonalPage
               />
