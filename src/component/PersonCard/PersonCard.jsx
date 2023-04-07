@@ -3,9 +3,9 @@ import './PersonCard.scss';
 const PersonCard = (props) => {
   return (
     <li className='person-card'>
-      <img src={props.img} alt={props.name} className='person-card__img' />
+      <img src={props.person.avatar} alt={`${props.person.first_name} ${props.person.last_name}`} className='person-card__img' />
       <p className='person-card__name'>
-        {props.name}
+        {`${props.person.first_name} ${props.person.last_name}`}
       </p>
       <button
         className={`person-card__button-like`}

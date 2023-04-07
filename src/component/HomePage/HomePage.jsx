@@ -25,8 +25,7 @@ const HomePage = (props) => {
             return (
               <PersonCard
                 key={el.id}
-                name={el.name}
-                img={el.img}
+                person={el}
               />
             );
           })}
