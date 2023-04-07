@@ -27,4 +27,19 @@
     @include flex-column;
     row-gap: 16px;
   }
+
+  &__button-show-password {
+    position: absolute;
+    @include reset-button;
+    background-image: url(../../images/icon-show-password.svg);
+    width: 24px;
+    height: 24px;
+    top: 42px;
+    right: 12px;
+    cursor: pointer;
+
+    &_hide {
+      background-image: url(../../images/icon-hidden-password.svg);
+    }
+  }
 }

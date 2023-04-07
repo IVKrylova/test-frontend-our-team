@@ -3,6 +3,7 @@
 
 .input-block {
   @include flex-column;
+  position: relative;
 
   &__label {
     @include font-w400-s16;

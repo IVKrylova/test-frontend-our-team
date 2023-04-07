@@ -4,6 +4,12 @@
   margin: 0;
 }
 
+@mixin reset-button {
+  background-color: transparent;
+  border: none;
+  background-repeat: no-repeat;
+}
+
 @mixin grid-column-ifr {
   display: grid;
   grid-template-columns: 1fr;
