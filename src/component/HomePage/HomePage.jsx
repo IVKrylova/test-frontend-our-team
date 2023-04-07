@@ -2,6 +2,8 @@ import PersonCard from '../PersonCard/PersonCard';
 import './HomePage.scss';
 
 const HomePage = (props) => {
+  const classButtonMore = `home-page__button-more ${props.isButtonMoreDisabled ? 'home-page__button-more_disabled' : ''}`;
+
   return (
     <main className='home-page'>
       <section className='home-page__header'>
@@ -32,7 +34,9 @@ const HomePage = (props) => {
         </ul>
         <button
           type='button'
-          className='home-page__button-more'
+          className={classButtonMore}
+          disabled={props.isButtonMoreDisabled}
+          onClick={props.increasePage}
         >
           Показать еще
         </button>

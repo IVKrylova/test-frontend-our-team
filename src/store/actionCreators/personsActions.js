@@ -6,3 +6,10 @@ export const setPersons = (persons) => {
     payload: persons,
   }
 }
+
+export const getMorePersons = (persons, newPersons) => {
+  return {
+    type: personsActionTypes.GET_MORE_PERSONS,
+    payload: [...persons, ...newPersons],
+  }
+}
