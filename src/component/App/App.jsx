@@ -21,6 +21,7 @@ const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [isButtonMoreDisabled, setIsButtonMoreDisabled] = useState(false);
+  const [currentPerson, setCurrentPerson] = useState(null);
 
   const handleFormSignUp = (data) => {
     console.log(data)
@@ -66,6 +67,8 @@ const App = () => {
   }
 
   const handleCardPersonClick = (id) => {
+    const person = persons.find(el => el.id === id);
+    setCurrentPerson(person);
     navigate(`/person/${id}`);
   }
 
@@ -106,6 +109,7 @@ const App = () => {
             path='/person/:id'
             element={
               <PersonalPage
+                currentPerson={currentPerson}
               />
             }
           />
