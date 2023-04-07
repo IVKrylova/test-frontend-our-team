@@ -3,4 +3,75 @@
 
 .home-page {
   @include grid-column-ifr;
+
+  &__header {
+    @include grid-column-ifr;
+    background-color: $color-violet;
+    box-sizing: border-box;
+    padding: 23px 5.5% 64px;
+
+    @include media_768 {
+      padding-top: 32px;
+    }
+  }
+
+  &__button-exit {
+   justify-self: end;
+   @include reset-button;
+   background-image: url(../../images/icon-exit.svg);
+   width: 18px;
+   height: 18px;
+   cursor: pointer;
+
+   @include media_768 {
+    background-image: none;
+    position: relative;
+    border-radius: $border-radius-input-bth;
+    border: 1px solid $color-light-grey;
+    text-align: center;
+    width: 81px;
+    cursor: pointer;
+    @include font-w400-s16;
+    color: $color-light-grey;
+    min-height: 38px;
+
+    &::after {
+      content: 'Выход';
+      position: absolute;
+      top: 8px;
+      left: 16px;
+    }
+   }
+
+   &:hover {
+    opacity: .7;
+  }
+  }
+
+  &__title {
+    @include reset-margins;
+    @include h1;
+    @include max-width-block(447px);
+    text-align: center;
+    margin: 23px auto 0;
+
+    @include media_768 {
+      margin-top: 0;
+    }
+  }
+
+  &__description {
+    @include reset-margins;
+    @include font-w400-s16;
+    line-height: 1.19;
+    color: $color-light-grey;
+    @include max-width-block(846px);
+    text-align: center;
+    margin: 16px auto 0;
+
+    @include media_768 {
+      @include font-w400-s20;
+
+    }
+  }
 }
