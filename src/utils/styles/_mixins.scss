@@ -9,6 +9,11 @@
   grid-template-columns: 1fr;
 }
 
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin h1 {
   font-weight: 400;
   font-size: 36px;
@@ -32,6 +37,18 @@
   line-height: 136.19%;
 }
 
+@mixin font-w400-s14 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+@mixin font-w400-s10 {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
 @mixin card-team-member {
   background: $color-white;
   box-shadow: 0px 0.996045px 3.98418px rgba(51, 51, 51, 0.15);
@@ -43,6 +60,11 @@
   border-radius: $border-radius-input-bth;
   color: $color-grey;
   padding: 16px 8px 16px;
+  border: none;
+
+  &_error {
+    border: 1px solid $color-red;
+  }
 }
 
 @mixin max-width-block($w) {
