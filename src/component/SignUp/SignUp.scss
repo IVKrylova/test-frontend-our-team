@@ -25,28 +25,6 @@
 
   &__form {
     @include flex-column;
-  }
-
-  &__label {
-    @include font-w400-s16;
-    color: $color-black;
-  }
-
-  &__input {
-    margin-top: 8px;
-    @include input;
-    @include font-w400-s14;
-  }
-
-  &__error {
-    margin-top: 4px;
-    @include font-w400-s10;
-    color: $color-red;
-    visibility: hidden;
-    margin-bottom: 16px;
-
-    &_active {
-      visibility: visible;
-    }
+    row-gap: 16px;
   }
 }

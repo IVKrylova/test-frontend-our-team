@@ -1,3 +1,4 @@
+import InputBlock from '../InputBlock/InputBlock';
 import './SignUp.scss';
 
 const SignUp = () => {
@@ -8,68 +9,43 @@ const SignUp = () => {
           Регистрация
         </h1>
         <form className='page-sign-up__form'>
-          <label htmlFor='name' className='page-sign-up__label'>
-            Имя
-          </label>
-          <input
-            type='text'
-            className='page-sign-up__input'
-            id='name'
+          <InputBlock
+            label='Имя'
             name='name'
-            required
+            type='text'
           />
-          <span className={`page-sign-up__error`}>
-            {}
-          </span>
-          <label htmlFor='email' className='page-sign-up__label'>
-            Электронная почта
-          </label>
-          <input
-            type='email'
-            className='page-sign-up__input'
-            id='email'
+          <InputBlock
+            label='Электронная почта'
             name='email'
-            required
+            type='email'
           />
-          <span className={`page-sign-up__error`}>
-            {}
-          </span>
-          <label htmlFor='password' className='page-sign-up__label'>
-            Пароль
-          </label>
-          <input
-            type='password'
-            className='page-sign-up__input'
-            id='password'
+          <InputBlock
+            label='Пароль'
             name='password'
-            required
-          />
-          <button
-            className='page-sign-up__button-show-password'
-            type='button'
-            aria-label='Кнопка показать пароль'
-          ></button>
-          <span className={`page-sign-up__error`}>
-            {}
-          </span>
-          <label htmlFor='password-verification' className='page-sign-up__label'>
-            Подтвердите пароль
-          </label>
-          <input
             type='password'
-            className='page-sign-up__input'
-            id='password-verification'
-            name='passwordVerification'
-            required
           />
-          <button
-            className='page-sign-up__button-show-password'
-            type='button'
-            aria-label='Кнопка показать пароль'
-          ></button>
-          <span className={`page-sign-up__error`}>
-            {}
-          </span>
+          <InputBlock
+            label='Пароль'
+            name='password'
+            type='password'
+          >
+            <button
+              className='page-sign-up__button-show-password'
+              type='button'
+              aria-label='Кнопка изменить видимость пароля'
+            ></button>
+          </InputBlock>
+          <InputBlock
+            label='Подтвердите пароль'
+            name='passwordVerification'
+            type='password'
+          >
+            <button
+              className='page-sign-up__button-show-password'
+              type='button'
+              aria-label='Кнопка изменить видимость пароля'
+            ></button>
+          </InputBlock>
           <button className='page-sign-up__button-submit' type='submit'>
             Зарегистрироваться
           </button>
