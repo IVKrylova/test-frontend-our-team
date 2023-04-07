@@ -5,6 +5,7 @@ import SignUp from '../SignUp/SignUp';
 import PersonalPage from '../PersonalPage/PersonalPage';
 import HomePage from '../HomePage/HomePage';
 import './App.scss';
+import { persons } from '../../utils/data';
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -21,7 +22,7 @@ const App = () => {
             path='/'
             element={
               <HomePage
-
+                persons={persons}
               />
             }
           />
