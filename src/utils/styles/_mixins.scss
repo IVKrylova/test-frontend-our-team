@@ -78,6 +78,33 @@
   max-width: $w;
 }
 
+@mixin button-header($text) {
+  cursor: pointer;
+
+  &:hover {
+    opacity: .7;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: none;
+    position: relative;
+    border-radius: $border-radius-input-bth;
+    border: 1px solid $color-light-grey;
+    text-align: center;
+    width: 81px;
+    cursor: pointer;
+    min-height: 38px;
+    color: $color-light-grey;
+
+    &::after {
+      content: $text;
+      position: absolute;
+      top: 8px;
+      left: 16px;
+    }
+  }
+}
+
 // media queries
 @mixin media_768 {
   @media screen and (min-width: 768px) {
@@ -85,3 +112,8 @@
   }
 }
 
+@mixin media_1024 {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}

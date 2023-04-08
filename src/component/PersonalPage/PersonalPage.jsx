@@ -6,26 +6,28 @@ const PersonalPage = (props) => {
   return (
     props.currentPerson &&
       <main className='personal-page'>
-        <section className='personal-page'>
+        <section className='personal-page__header'>
           <ul className='personal-page__button-list'>
-            <li>
+            <li className='personal-page__button-item'>
               <ButtonGoBack />
             </li>
-            <li>
+            <li className='personal-page__button-item'>
               <ButtonExit />
             </li>
           </ul>
-          <h1 className='personal-page__name'>
-            {`${props.currentPerson.first_name} ${props.currentPerson.last_name}`}
-          </h1>
-          <p className='personal-page__position'>
-            Партнер
-          </p>
-          <img
-            src={props.currentPerson.avatar}
-            alt={`${props.currentPerson.first_name} ${props.currentPerson.last_name}`}
-            className='personal-page__img'
-          />
+          <div className='personal-page__about-person'>
+            <h1 className='personal-page__name'>
+              {`${props.currentPerson.first_name} ${props.currentPerson.last_name}`}
+            </h1>
+            <p className='personal-page__position'>
+              Партнер
+            </p>
+            <img
+              src={props.currentPerson.avatar}
+              alt={`${props.currentPerson.first_name} ${props.currentPerson.last_name}`}
+              className='personal-page__img'
+            />
+          </div>
         </section>
         <section className='personal-page__content'>
           <ul className='personal-page__contacts-list'>
