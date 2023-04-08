@@ -28,6 +28,7 @@ const PersonalPage = (props) => {
               src={props.currentPerson.avatar}
               alt={`${props.currentPerson.first_name} ${props.currentPerson.last_name}`}
               className='personal-page__img'
+              onClick={props.handleOpenPopup}
             />
           </div>
         </section>

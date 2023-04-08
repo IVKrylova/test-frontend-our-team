@@ -113,6 +113,30 @@
   }
 }
 
+@mixin button-submit {
+  background-color: $color-violet;
+  border: none;
+  border-radius: $border-radius-input-bth;
+  color: $color-white;
+  padding: 13px 0;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &_disabled {
+    cursor: default;
+    background-color: $color-grey;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
 // media queries
 @mixin media_768 {
   @media screen and (min-width: 768px) {

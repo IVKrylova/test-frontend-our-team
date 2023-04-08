@@ -46,26 +46,6 @@
   &__button-submit {
     @include max-width-block(468px);
     @include font-w400-s16;
-    background-color: $color-violet;
-    border: none;
-    border-radius: $border-radius-input-bth;
-    color: $color-white;
-    padding: 13px 0;
-    box-sizing: border-box;
-    text-align: center;
-    cursor: pointer;
-
-    &:hover {
-      opacity: .9;
-    }
-
-    &_disabled {
-      cursor: default;
-      background-color: $color-grey;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
+    @include button-submit;
   }
 }

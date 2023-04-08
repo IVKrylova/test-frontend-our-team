@@ -1,0 +1,73 @@
+@import '../../utils/styles/constants';
+@import '../../utils/styles/_mixins';
+
+.popup {
+ display: grid;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.9s, opacity .7s linear;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  left: 0;
+  top: 0;
+  cursor: pointer;
+
+  &_opened {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .9s, opacity .7s linear;
+  }
+
+  &__container {
+    position: relative;
+    @include grid-column-1fr;
+    width: 340px;
+    background-color: $color-white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: $border-radius-input-bth;
+    z-index: 10;
+    cursor: default;
+    box-sizing: border-box;
+    padding: 25px;
+  }
+
+  &__button-close {
+    @include reset-button;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../images/icon-button-close.svg);
+    box-sizing: border-box;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background-size: contain;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  &__title {
+    @include reset-margins;
+    @include font-w400-s20;
+  }
+
+  &__form {
+    @include grid-column-1fr;
+    margin-top: 30px;
+  }
+
+  &__button-submit {
+    @include max-width-block(200px);
+    @include font-w400-s16;
+    @include button-submit;
+    justify-self: center;
+  }
+}

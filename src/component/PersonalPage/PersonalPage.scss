@@ -88,6 +88,7 @@
     height: 187px;
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
 
     @include media_768 {
       grid-column: 1 / 2;

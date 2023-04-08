@@ -7,6 +7,7 @@ import SignUp from '../SignUp/SignUp';
 import PersonalPage from '../PersonalPage/PersonalPage';
 import HomePage from '../HomePage/HomePage';
 import PageNotFound from '../PageNotFound/PageNotFound';
+import PopupEditAvatar from '../PopupEditAvatar/PopupEditAvatar';
 import {
   setPersons,
   getMorePersons,
@@ -27,6 +28,7 @@ const App = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [isButtonMoreDisabled, setIsButtonMoreDisabled] = useState(false);
   const [currentPerson, setCurrentPerson] = useState(null);
+  const [isOpenPopup, setIsOpenPopup] = useState(false)
 
   const handleFormSignUp = (data) => {
     console.log(data)
@@ -81,6 +83,23 @@ const App = () => {
     navigate(-1);
   }
 
+  const handleClosePopup = (evt) => {
+    setIsOpenPopup(false);
+  }
+
+  const handleOpenPopup = () => {
+    setIsOpenPopup(true);
+  }
+  const handleFormAvatar = (avatar) => {
+    console.log(avatar)
+  }
+
+  const handleBackgroundClose = (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      handleClosePopup();
+    }
+  }
+
   useEffect(() => {
     const data = localStorage.getItem('persons')
       && JSON.parse(localStorage.getItem('persons'));
@@ -103,8 +122,20 @@ const App = () => {
     if (persons.length > 0) localStorage.setItem('persons', JSON.stringify(persons));
   }, [persons]);
 
+  useEffect(() => {
+    const handleEscClose = (evt) => {
+      if (evt.key === 'Escape') {
+        handleClosePopup();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscClose);
+
+    return () => document.removeEventListener('keydown', handleEscClose);
+  }, []);
+
   return (
-    <div className='app'>
+    <div className='app' onClick={handleBackgroundClose}>
       <Routes>
         <Route element={ <ProtectedRoute isLogin={isLogin} /> }>
           <Route
@@ -127,6 +158,7 @@ const App = () => {
               <PersonalPage
                 currentPerson={currentPerson}
                 handleClickGoBack={handleClickGoBack}
+                handleOpenPopup={handleOpenPopup}
               />
             }
           />
@@ -148,6 +180,11 @@ const App = () => {
           }
         />
       </Routes>
+      <PopupEditAvatar
+        onClosePopup={handleClosePopup}
+        isOpenPopup={isOpenPopup}
+        sendNewAvatar={handleFormAvatar}
+      />
     </div>
   );
 }
