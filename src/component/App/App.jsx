@@ -6,6 +6,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import SignUp from '../SignUp/SignUp';
 import PersonalPage from '../PersonalPage/PersonalPage';
 import HomePage from '../HomePage/HomePage';
+import PageNotFound from '../PageNotFound/PageNotFound';
 import {
   setPersons,
   getMorePersons,
@@ -124,6 +125,14 @@ const App = () => {
           element={
             <SignUp
               sendProperty={handleFormSignUp}
+            />
+          }
+        />
+        <Route
+          path='*'
+          element={
+            <PageNotFound
+              handleClickGoBack={handleClickGoBack}
             />
           }
         />
