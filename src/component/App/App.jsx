@@ -12,7 +12,11 @@ import {
   getMorePersons,
   likePerson
 } from '../../store/actionCreators/personsActions';
-import { TOTAL_PAGES, LIMIT_PERSON_IN_PAGE } from '../../utils/constants';
+import {
+  TOTAL_PAGES,
+  LIMIT_PERSON_IN_PAGE,
+  TOTAL_PERSONS,
+} from '../../utils/constants';
 import './App.scss';
 
 const App = () => {
@@ -49,7 +53,7 @@ const App = () => {
   }
 
   const handleGetMorePersons = async () => {
-    if (pageNumber > 1) {
+    if (pageNumber > 1 && pageNumber <= TOTAL_PAGES) {
       try {
         const res = await axios.get(`https://reqres.in/api/users?page=${pageNumber}`);
         const data = res.data.data.map(el => {
@@ -86,12 +90,13 @@ const App = () => {
     } else {
       dispatch(setPersons(data));
       setPageNumber(data.length / LIMIT_PERSON_IN_PAGE);
+      if (pageNumber === TOTAL_PAGES) setIsButtonMoreDisabled(true);
     }
 
   }, []);
 
   useEffect(() => {
-    handleGetMorePersons();
+    persons.length !== TOTAL_PERSONS ? handleGetMorePersons() : setIsButtonMoreDisabled(true);
   }, [pageNumber]);
 
   useEffect(() => {

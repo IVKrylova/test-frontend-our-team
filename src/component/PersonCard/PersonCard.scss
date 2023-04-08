@@ -12,6 +12,8 @@
 
   &__img {
     width: 124px;
+    height: 124px;
+    object-fit: cover;
     border-radius: 50%;
     display: block;
   }
