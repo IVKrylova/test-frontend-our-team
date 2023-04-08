@@ -72,6 +72,10 @@ const App = () => {
     navigate(`/person/${id}`);
   }
 
+  const handleClickGoBack = () => {
+    navigate(-1);
+  }
+
   useEffect(() => {
     const data = localStorage.getItem('persons')
       && JSON.parse(localStorage.getItem('persons'));
@@ -110,6 +114,7 @@ const App = () => {
             element={
               <PersonalPage
                 currentPerson={currentPerson}
+                handleClickGoBack={handleClickGoBack}
               />
             }
           />

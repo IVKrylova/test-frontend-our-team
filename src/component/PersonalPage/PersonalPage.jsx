@@ -9,7 +9,9 @@ const PersonalPage = (props) => {
         <section className='personal-page__header'>
           <ul className='personal-page__button-list'>
             <li className='personal-page__button-item'>
-              <ButtonGoBack />
+              <ButtonGoBack
+                handleClickGoBack={props.handleClickGoBack}
+              />
             </li>
             <li className='personal-page__button-item'>
               <ButtonExit />

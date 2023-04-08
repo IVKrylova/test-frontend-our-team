@@ -6,6 +6,7 @@ const ButtonGoBack = (props) => {
       className='button-go-back'
       type='button'
       aria-label='Кнопка вернуться назад'
+      onClick={props.handleClickGoBack}
     ></button>
   );
 }
