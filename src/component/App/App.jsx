@@ -12,7 +12,7 @@ import {
   getMorePersons,
   likePerson
 } from '../../store/actionCreators/personsActions';
-import { TOTAL_PAGES } from '../../utils/constants';
+import { TOTAL_PAGES, LIMIT_PERSON_IN_PAGE } from '../../utils/constants';
 import './App.scss';
 
 const App = () => {
@@ -81,7 +81,13 @@ const App = () => {
     const data = localStorage.getItem('persons')
       && JSON.parse(localStorage.getItem('persons'));
 
-    data === null ? getPersons() : dispatch(setPersons(data));
+    if (data === null) {
+      getPersons();
+    } else {
+      dispatch(setPersons(data));
+      setPageNumber(data.length / LIMIT_PERSON_IN_PAGE);
+    }
+
   }, []);
 
   useEffect(() => {
