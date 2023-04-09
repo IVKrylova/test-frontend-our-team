@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -24,12 +24,13 @@ import './App.scss';
 const App = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let location = useLocation();
   const persons = useSelector(store => store.persons.persons);
   const [isLogin, setIsLogin] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [isButtonMoreDisabled, setIsButtonMoreDisabled] = useState(false);
   const [currentPerson, setCurrentPerson] = useState(null);
-  const [isOpenPopup, setIsOpenPopup] = useState(false)
+  const [isOpenPopup, setIsOpenPopup] = useState(false);
 
   const handleFormSignUp = (data) => {
     console.log(data)
@@ -153,6 +154,16 @@ const App = () => {
     return () => document.removeEventListener('keydown', handleEscClose);
   }, []);
 
+  useEffect(() => {
+    if (currentPerson === null && location.pathname.startsWith('/person/') && localStorage.getItem('persons')) {
+      const id = location.pathname.slice(8);
+      const person = JSON.parse(localStorage.getItem('persons')).find(el => el.id === Number(id));
+      setCurrentPerson(person);
+    } else if (currentPerson === null && location.pathname.startsWith('/person/') && !localStorage.getItem('persons')) {
+      navigate('/');
+    }
+  }, []);
+
   return (
     <div className='app' onClick={handleBackgroundClose}>
       <Routes>
@@ -176,8 +187,10 @@ const App = () => {
             element={
               <PersonalPage
                 currentPerson={currentPerson}
+                setCurrentPerson={setCurrentPerson}
                 handleClickGoBack={handleClickGoBack}
                 handleOpenPopup={handleOpenPopup}
+                location={location}
               />
             }
           />
@@ -203,6 +216,7 @@ const App = () => {
         onClosePopup={handleClosePopup}
         isOpenPopup={isOpenPopup}
         sendNewAvatar={handleFormAvatar}
+        location={location}
       />
     </div>
   );
