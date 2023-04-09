@@ -171,6 +171,7 @@ const App = () => {
 
     if (data === null || data.length === 0) {
       getPersons();
+      setIsButtonMoreDisabled(false);
     } else {
       dispatch(setPersons(data));
       setPageNumber(data.length / LIMIT_PERSON_IN_PAGE);
@@ -217,6 +218,7 @@ const App = () => {
     if (isLogin && (data === null || data.length === 0)) {
       getPersons();
       setPageNumber(1);
+      setIsButtonMoreDisabled(false);
     }
   }, [isLogin]);
 
