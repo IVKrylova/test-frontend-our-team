@@ -1,0 +1,15 @@
+@import '../../utils/styles/constants';
+@import '../../utils/styles/_mixins';
+
+.button-exit {
+  @include button-header('Выход');
+  justify-self: end;
+  @include reset-button;
+  background-image: url(../../images/icon-exit.svg);
+  width: 18px;
+  height: 18px;
+
+  @include media_768 {
+    @include font-w400-s16;
+  }
+}

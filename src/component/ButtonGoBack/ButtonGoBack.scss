@@ -1,0 +1,15 @@
+@import '../../utils/styles/constants';
+@import '../../utils/styles/_mixins';
+
+.button-go-back {
+  @include reset-button;
+  @include button-header('Назад');
+  background-image: url(../../images/icon-go-back.svg);
+  width: 7px;
+  height: 14px;
+  background-position: center;
+
+  @include media_768 {
+    @include font-w400-s16;
+  }
+}

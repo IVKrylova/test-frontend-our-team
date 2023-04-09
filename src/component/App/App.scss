@@ -1,0 +1,7 @@
+@import '../../utils/styles/mixins';
+
+.app {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  @include grid-column-1fr;
+  min-height: 100vh;
+}

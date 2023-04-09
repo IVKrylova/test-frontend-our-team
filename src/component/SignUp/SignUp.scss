@@ -1,0 +1,51 @@
+@import '../../utils/styles/constants';
+@import '../../utils/styles/_mixins';
+
+.page-sign-up {
+  @include grid-column-1fr;
+  justify-content: center;
+  align-items: center;
+
+  &__form-content {
+    @include max-width-block(500px);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    height: min-content;
+    padding: 16px;
+    box-sizing: border-box;
+    @include flex-column;
+    row-gap: 16px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include reset-margins;
+    @include font-w400-s20;
+    color: $color-black;
+  }
+
+  &__form {
+    @include flex-column;
+  }
+
+  &__button-show-password {
+    position: absolute;
+    @include reset-button;
+    background-image: url(../../images/icon-show-password.svg);
+    width: 24px;
+    height: 24px;
+    top: 42px;
+    right: 12px;
+    cursor: pointer;
+
+    &_hide {
+      background-image: url(../../images/icon-hidden-password.svg);
+    }
+  }
+
+  &__button-submit {
+    @include max-width-block(468px);
+    @include font-w400-s16;
+    @include button-submit;
+  }
+}
