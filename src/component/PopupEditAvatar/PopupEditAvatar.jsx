@@ -1,9 +1,11 @@
+import { useLocation } from 'react-router-dom';
 import InputBlock from '../InputBlock/InputBlock';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import './PopupEditAvatar.scss';
 
 const PopupEditAvatar = (props) => {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
+  let location = useLocation();
 
   const classButtomSubmit = `popup__button-submit ${!isValid ? 'popup__button-submit_disabled' : ''}`;
 
@@ -12,6 +14,7 @@ const PopupEditAvatar = (props) => {
 
     props.sendNewAvatar({
       avatar: values.avatar,
+      id: location.pathname.slice(8),
     });
   }
 

@@ -11,7 +11,8 @@ import PopupEditAvatar from '../PopupEditAvatar/PopupEditAvatar';
 import {
   setPersons,
   getMorePersons,
-  likePerson
+  likePerson,
+  editAvatar,
 } from '../../store/actionCreators/personsActions';
 import {
   TOTAL_PAGES,
@@ -83,15 +84,33 @@ const App = () => {
     navigate(-1);
   }
 
-  const handleClosePopup = (evt) => {
+  const handleClosePopup = () => {
     setIsOpenPopup(false);
   }
 
   const handleOpenPopup = () => {
     setIsOpenPopup(true);
   }
-  const handleFormAvatar = (avatar) => {
-    console.log(avatar)
+  const handleFormAvatar = async ({ avatar, id }) => {
+
+    try {
+      const res = await axios.patch(`https://reqres.in/api/users/${id}`,
+        {
+          avatar: avatar,
+        }, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      );
+
+      if (res.status === 200) {
+        dispatch(editAvatar(persons, Number(id), avatar));
+        handleClosePopup();
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   const handleBackgroundClose = (evt) => {

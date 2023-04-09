@@ -25,3 +25,15 @@ export const likePerson = (persons, id) => {
     }),
   }
 }
+
+export const editAvatar = (persons, id, avatar) => {
+  return {
+    type: personsActionTypes.EDIT_AVATAR,
+    payload: persons.map(el => {
+      if (el.id === id) {
+        el.avatar = avatar;
+      }
+      return el;
+    }),
+  }
+}

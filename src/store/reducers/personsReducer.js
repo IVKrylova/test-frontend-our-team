@@ -21,6 +21,11 @@ export const personsReducer = (state = initialState, action) => {
         ...state,
         persons: action.payload,
       }
+    case personsActionTypes.EDIT_AVATAR:
+      return {
+        ...state,
+        persons: action.payload,
+      }
     default:
       return state;
   }
