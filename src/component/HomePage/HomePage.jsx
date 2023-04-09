@@ -8,7 +8,9 @@ const HomePage = (props) => {
   return (
     <main className='home-page'>
       <section className='home-page__header'>
-        <ButtonExit />
+        <ButtonExit
+          handleExit={props.handleExit}
+        />
         <h1 className='home-page__title'>
           Наша команда
         </h1>

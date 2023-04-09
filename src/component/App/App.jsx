@@ -13,6 +13,7 @@ import {
   getMorePersons,
   likePerson,
   editAvatar,
+  clearPersons,
 } from '../../store/actionCreators/personsActions';
 import {
   TOTAL_PAGES,
@@ -158,11 +159,18 @@ const App = () => {
     }
   }
 
+  const handleExit = () => {
+    setIsLogin(false);
+    localStorage.setItem('token', '');
+    localStorage.setItem('persons', '');
+    dispatch(clearPersons());
+  }
+
   useEffect(() => {
     const data = localStorage.getItem('persons')
       && JSON.parse(localStorage.getItem('persons'));
 
-    if (data === null) {
+    if (data === null || data.length === 0) {
       getPersons();
     } else {
       dispatch(setPersons(data));
@@ -203,7 +211,14 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    const data = localStorage.getItem('persons')
+      && JSON.parse(localStorage.getItem('persons'));
+
     if (isLogin) navigate('/');
+    if (data === null || data.length === 0) {
+      getPersons();
+      setPageNumber(1);
+    }
   }, [isLogin]);
 
   useEffect(() => {
@@ -223,6 +238,7 @@ const App = () => {
                 increasePage={increasePage}
                 sendIdPerson={handleClickLikePerson}
                 sendIdCardPerson={handleCardPersonClick}
+                handleExit={handleExit}
               />
             }
           />
@@ -237,6 +253,7 @@ const App = () => {
                 handleClickGoBack={handleClickGoBack}
                 handleOpenPopup={handleOpenPopup}
                 location={location}
+                handleExit={handleExit}
               />
             }
           />

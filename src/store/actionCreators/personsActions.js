@@ -37,3 +37,10 @@ export const editAvatar = (persons, id, avatar) => {
     }),
   }
 }
+
+export const clearPersons = () => {
+  return {
+    type: personsActionTypes.CLEAR_PERSONS,
+    payload: [],
+  }
+}

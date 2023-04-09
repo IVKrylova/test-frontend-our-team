@@ -14,7 +14,9 @@ const PersonalPage = (props) => {
               />
             </li>
             <li className='personal-page__button-item'>
-              <ButtonExit />
+              <ButtonExit
+                handleExit={props.handleExit}
+              />
             </li>
           </ul>
           <div className='personal-page__about-person'>
