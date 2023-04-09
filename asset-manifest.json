@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "./static/css/main.2629adea.css",
-    "main.js": "./static/js/main.0bde178c.js",
-    "static/js/787.94a6e0c2.chunk.js": "./static/js/787.94a6e0c2.chunk.js",
-    "static/media/Roboto.ttf": "./static/media/Roboto.ecf539e1e3bc3e936f78.ttf",
-    "static/media/Roboto.woff": "./static/media/Roboto.59d18e163bfcd0607572.woff",
-    "static/media/Roboto.woff2": "./static/media/Roboto.806e04d8241d87f99a68.woff2",
-    "static/media/icon-exit.svg": "./static/media/icon-exit.3c6718fb9dee8dfc1c28.svg",
-    "static/media/icon-button-more.svg": "./static/media/icon-button-more.891030d95ee9b75f3c53.svg",
-    "static/media/icon-phone.svg": "./static/media/icon-phone.604f5882b2bb04f32641.svg",
-    "static/media/icon-go-back.svg": "./static/media/icon-go-back.e45b748094e0a86fadf9.svg",
-    "static/media/icon-show-password.svg": "./static/media/icon-show-password.4533174a2c892ae0876a.svg",
-    "index.html": "./index.html",
-    "static/media/icon-email.svg": "./static/media/icon-email.8a6b8f66f8661fb4adf4.svg",
-    "static/media/icon-hidden-password.svg": "./static/media/icon-hidden-password.c876f38f06701c9523c8.svg",
-    "static/media/icon-like-pressed.svg": "./static/media/icon-like-pressed.ae93de294c775ceacd35.svg",
-    "static/media/icon-like.svg": "./static/media/icon-like.ba49bc5cb3cab85407fa.svg",
-    "static/media/icon-button-close.svg": "./static/media/icon-button-close.039f1f5203f653b4bacd.svg",
-    "main.2629adea.css.map": "./static/css/main.2629adea.css.map",
-    "main.0bde178c.js.map": "./static/js/main.0bde178c.js.map",
-    "787.94a6e0c2.chunk.js.map": "./static/js/787.94a6e0c2.chunk.js.map"
+    "main.css": "/test-frontend-our-team/static/css/main.b2c7eead.css",
+    "main.js": "/test-frontend-our-team/static/js/main.84faef2b.js",
+    "static/js/787.94a6e0c2.chunk.js": "/test-frontend-our-team/static/js/787.94a6e0c2.chunk.js",
+    "static/media/Roboto.ttf": "/test-frontend-our-team/static/media/Roboto.ecf539e1e3bc3e936f78.ttf",
+    "static/media/Roboto.woff": "/test-frontend-our-team/static/media/Roboto.59d18e163bfcd0607572.woff",
+    "static/media/Roboto.woff2": "/test-frontend-our-team/static/media/Roboto.806e04d8241d87f99a68.woff2",
+    "static/media/icon-exit.svg": "/test-frontend-our-team/static/media/icon-exit.3c6718fb9dee8dfc1c28.svg",
+    "static/media/icon-button-more.svg": "/test-frontend-our-team/static/media/icon-button-more.891030d95ee9b75f3c53.svg",
+    "static/media/icon-phone.svg": "/test-frontend-our-team/static/media/icon-phone.604f5882b2bb04f32641.svg",
+    "static/media/icon-go-back.svg": "/test-frontend-our-team/static/media/icon-go-back.e45b748094e0a86fadf9.svg",
+    "index.html": "/test-frontend-our-team/index.html",
+    "static/media/icon-show-password.svg": "/test-frontend-our-team/static/media/icon-show-password.4533174a2c892ae0876a.svg",
+    "static/media/icon-email.svg": "/test-frontend-our-team/static/media/icon-email.8a6b8f66f8661fb4adf4.svg",
+    "static/media/icon-hidden-password.svg": "/test-frontend-our-team/static/media/icon-hidden-password.c876f38f06701c9523c8.svg",
+    "static/media/icon-like-pressed.svg": "/test-frontend-our-team/static/media/icon-like-pressed.ae93de294c775ceacd35.svg",
+    "static/media/icon-like.svg": "/test-frontend-our-team/static/media/icon-like.ba49bc5cb3cab85407fa.svg",
+    "static/media/icon-button-close.svg": "/test-frontend-our-team/static/media/icon-button-close.039f1f5203f653b4bacd.svg",
+    "main.b2c7eead.css.map": "/test-frontend-our-team/static/css/main.b2c7eead.css.map",
+    "main.84faef2b.js.map": "/test-frontend-our-team/static/js/main.84faef2b.js.map",
+    "787.94a6e0c2.chunk.js.map": "/test-frontend-our-team/static/js/787.94a6e0c2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2629adea.css",
-    "static/js/main.0bde178c.js"
+    "static/css/main.b2c7eead.css",
+    "static/js/main.84faef2b.js"
   ]
 }
