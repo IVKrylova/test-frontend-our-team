@@ -229,7 +229,7 @@ const App = () => {
       <Routes>
         <Route element={ <ProtectedRoute isLogin={isLogin} /> }>
           <Route
-            path='/test-frontend-our-team/'
+            path='/'
             element={
               <HomePage
                 isButtonMoreDisabled={isButtonMoreDisabled}
@@ -243,7 +243,7 @@ const App = () => {
         </Route>
         <Route element={ <ProtectedRoute isLogin={isLogin} /> }>
           <Route
-            path='/test-frontend-our-team/person/:id'
+            path='/person/:id'
             element={
               <PersonalPage
                 currentPerson={currentPerson}
@@ -257,7 +257,7 @@ const App = () => {
           />
         </Route>
         <Route
-          path='/test-frontend-our-team/sign-up'
+          path='/sign-up'
           element={
             <SignUp
               sendProperty={handleFormSignUp}
