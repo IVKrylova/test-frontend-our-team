@@ -207,8 +207,8 @@ const App = () => {
   }, [isLogin]);
 
   useEffect(() => {
-    if (isLogin) navigate('/');
-  }, [isLogin]);
+    if (localStorage.getItem('token')) setIsLogin(true);
+  }, []);
 
   return (
     <div className='app' onClick={handleBackgroundClose}>
