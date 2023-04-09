@@ -2,6 +2,7 @@
   "name": "test-frontend-our-team",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ivkrylova.github.io/test-frontend-our-team/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -21,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "sass": "^1.61.0",
     "scss": "^0.2.4"
   }
