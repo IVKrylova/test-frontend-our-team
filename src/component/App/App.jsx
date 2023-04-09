@@ -26,14 +26,53 @@ const App = () => {
   const navigate = useNavigate();
   let location = useLocation();
   const persons = useSelector(store => store.persons.persons);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isRegister, setIsRegister] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
   const [isButtonMoreDisabled, setIsButtonMoreDisabled] = useState(false);
   const [currentPerson, setCurrentPerson] = useState(null);
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
-  const handleFormSignUp = (data) => {
-    console.log(data)
+  const authorize = async (email, password) => {
+    try {
+      const res = await axios.post(`https://reqres.in/api/login`,
+        {
+          email: email,
+          password: 'cityslicka',
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
+      if (res.status === 200) {
+        setIsLogin(true);
+        localStorage.setItem('token', res.data.token);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const handleFormSignUp = async ({ email, name, password }) => {
+    try {
+      const res = await axios.post(`https://reqres.in/api/register`,
+        {
+          email: email,
+          password: password,
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
+      if (res.status === 200) {
+        setIsRegister(true);
+        authorize(email, password);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   const getPersons = async () => {
@@ -93,14 +132,13 @@ const App = () => {
     setIsOpenPopup(true);
   }
   const handleFormAvatar = async ({ avatar, id }) => {
-
     try {
       const res = await axios.patch(`https://reqres.in/api/users/${id}`,
         {
           avatar: avatar,
         }, {
           headers: {
-            'Content-Type': 'multipart/form-data'
+            'Content-Type': 'application/json',
           }
         }
       );
@@ -163,6 +201,14 @@ const App = () => {
       navigate('/');
     }
   }, []);
+
+  useEffect(() => {
+    if (isLogin) navigate('/');
+  }, [isLogin]);
+
+  useEffect(() => {
+    if (isLogin) navigate('/');
+  }, [isLogin]);
 
   return (
     <div className='app' onClick={handleBackgroundClose}>
