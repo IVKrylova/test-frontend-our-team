@@ -2,7 +2,7 @@
 @import '../../utils/styles/_mixins';
 
 .popup {
- display: grid;
+  display: grid;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.9s, opacity .7s linear;
