@@ -233,7 +233,6 @@ const App = () => {
             path='/'
             element={
               <HomePage
-                persons={persons}
                 isButtonMoreDisabled={isButtonMoreDisabled}
                 increasePage={increasePage}
                 sendIdPerson={handleClickLikePerson}

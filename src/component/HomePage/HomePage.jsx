@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
 import ButtonExit from '../ButtonExit/ButtonExit';
 import PersonCard from '../PersonCard/PersonCard';
 import './HomePage.scss';
 
 const HomePage = (props) => {
+  const persons = useSelector(store => store.persons.persons);
   const classButtonMore = `home-page__button-more ${props.isButtonMoreDisabled ? 'home-page__button-more_disabled' : ''}`;
 
   return (
@@ -22,7 +24,7 @@ const HomePage = (props) => {
       </section>
       <section className='home-page__content'>
         <ul className='home-page__persons-list'>
-          {props.persons && props.persons.map(el => {
+          {persons && persons.map(el => {
             return (
               <PersonCard
                 key={el.id}
