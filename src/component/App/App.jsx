@@ -161,8 +161,7 @@ const App = () => {
 
   const handleExit = () => {
     setIsLogin(false);
-    localStorage.setItem('token', '');
-    localStorage.setItem('persons', '');
+    localStorage.clear();
     dispatch(clearPersons());
   }
 
@@ -215,7 +214,7 @@ const App = () => {
       && JSON.parse(localStorage.getItem('persons'));
 
     if (isLogin) navigate('/');
-    if (data === null || data.length === 0) {
+    if (isLogin && (data === null || data.length === 0)) {
       getPersons();
       setPageNumber(1);
     }
