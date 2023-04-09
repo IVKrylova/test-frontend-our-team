@@ -7,7 +7,7 @@
 ![](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 
 ## Демо
-Посмотреть приложение можно [здесь]() </br>
+Посмотреть приложение можно [здесь](https://ivkrylova.github.io/test-frontend-our-team/) </br>
 Данные для регистрации в приложении </br>
 { </br>
   &nbsp;&nbsp; "email": "eve.holt@reqres.in", </br>
